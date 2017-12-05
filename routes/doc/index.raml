@@ -9,7 +9,7 @@ version: 1
     get:
       description: Obtenir la liste des installations pour un arrondissement.
       queryParameters:
-        recherche:
+        arrondissement:
           description: Une chaine de caractères qui correspond à un arrondissement.
           type: string
           required: true
@@ -25,7 +25,7 @@ version: 1
       get:
         description: Obtenir l'information disponible pour une installation.
         queryParameters:
-          recherche:
+          nom:
             description: Une chaine de caractères qui correspond au nom d'une installation.
             type: string
             required: true

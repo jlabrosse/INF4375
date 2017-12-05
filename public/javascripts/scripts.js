@@ -5,7 +5,7 @@ function createTable(result){
     result.forEach(function(item) {
       html = html + installationObjectToRow(item);
     });
-    document.getElementById("emptyMsg").innerHTML = "";
+    document.getElementById("emptyResultMsg").innerHTML = "";
     document.getElementById("resultTable").innerHTML = header + html;
   }else{
     document.getElementById("resultTable").innerHTML = "";

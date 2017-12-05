@@ -20,7 +20,7 @@ function getConnection(callback) {
      if (err) {
        console.log('Unable to connect to the mongoDB server. Error:', err);
      } else {
-       console.log('Connection established to', url);
+       console.log('Connection established.');
 
        instanceMongoDB = db;
        callback(err, instanceMongoDB);

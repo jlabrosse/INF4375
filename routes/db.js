@@ -7,7 +7,7 @@ var rinkData = null;
 var slideData = null;
 var poolData = null;
 var MongoClient = mongodb.MongoClient;
-var url = process.env.MONGOLAB_URI;
+var url = process.env.MONGODB_URI;
 
 
 

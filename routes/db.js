@@ -9,12 +9,14 @@ var poolData = null;
 var MongoClient = mongodb.MongoClient;
 var url = process.env.MONGOLAB_URI;
 
+
+
 function getConnection(callback) {
   if (instanceMongoDB) {
     callback(null, instanceMongoDB);
   } else {
 
-    MongoClient.connect(url, function (err, db) {
+    MongoClient.connect(url || 'mongodb://localhost:27017/MTLdata', function (err, db) {
      if (err) {
        console.log('Unable to connect to the mongoDB server. Error:', err);
      } else {

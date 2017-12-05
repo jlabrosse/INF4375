@@ -1,0 +1,43 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+th {
+  padding-bottom: 13px;
+  border-bottom-style: solid;
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom-style: dotted;
+  border-color: grey;
+}
+
+td.left {
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 30px;
+}
+
+td.right {
+  text-align: right;
+}
+
+fieldset {
+  width: 50%;
+}
+
+fieldset button,input[type="submit"]{
+  float: right;
+}
+
+fieldset input[type="text"]{
+  width: 350px;
+}
+
+a {
+  color: #00B7FF;
+}

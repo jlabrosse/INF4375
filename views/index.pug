@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    script(src='http://code.jquery.com/jquery-1.9.1.js')
+    script
+      include ../public/javascripts/scripts.js
+    meta(charset="utf-8")
+    title Projet de session
+  body
+    fieldset
+      legend Rechercher les installations par nom d'arrondissement
+      form(action="/", id="regionForm")
+        input(type="text", name="arrondissement")
+        input(type="submit", value="Rechercher")
+    h4 ou
+    fieldset
+      legend Rechercher les installations par nom d'installation
+      select#nameSelect
+        for each in items
+          option #{each}
+      button(onclick='getSingleInstallation();') Rechercher
+    br
+    br
+    br
+    p#emptyResultMsg
+    table#resultTable
+    script.
+      $("#regionForm").submit(function(event) {
+        event.preventDefault();
+        $.ajax({url : "/installations",
+          data: $(this).serialize(),
+          dataType: "json",
+        }).done(function(data){createTable(data)});
+      });

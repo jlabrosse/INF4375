@@ -6,12 +6,14 @@ var instanceMongoDB;
 var rinkData = null;
 var slideData = null;
 var poolData = null;
+var url = process.env.MONGOLAB_URI;
 
 function getConnection(callback) {
   if (instanceMongoDB) {
     callback(null, instanceMongoDB);
   } else {
-    var server = new mongodb.Server("localhost", 27017, {auto_reconnect: true});
+    //var server = new mongodb.Server("localhost", 27017, {auto_reconnect: true});
+    var server = new mongodb.Server(url, {auto_reconnect: true});
     var db = new mongodb.Db("MTLdata", server, {safe: true});
 
     if (!db.openCalled) {

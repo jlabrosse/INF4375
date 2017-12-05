@@ -21,19 +21,19 @@ version: 1
               schema: N/A
         500:
           description: Une erreur interne s'est produite. Consulté les logs pour plus d'informations.
-      /simple:
-        get:
-          description: Obtenir l'information disponible pour une installation.
-          queryParameters:
-            recherche:
-              description: Une chaine de caractères qui correspond au nom d'une installation.
-              type: string
-              required: true
-          responses:
-            200:
-              description: L'information de l'installation a été correctement envoyée.
-              body:
-                application/json:
-                  schema: N/A
-            500:
-              description: Une erreur interne s'est produite. Consulté les logs pour plus d'informations.
+    /simple:
+      get:
+        description: Obtenir l'information disponible pour une installation.
+        queryParameters:
+          recherche:
+            description: Une chaine de caractères qui correspond au nom d'une installation.
+            type: string
+            required: true
+        responses:
+          200:
+            description: L'information de l'installation a été correctement envoyée.
+            body:
+              application/json:
+                schema: N/A
+          500:
+            description: Une erreur interne s'est produite. Consulté les logs pour plus d'informations.

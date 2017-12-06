@@ -1,4 +1,5 @@
 function createTable(result){
+  console.log(result);
   if(result.length){
     var html = "";
     var header = "<tr> <th>Nom</th> <th>Type</th> <th>Nom arrondissement</th> <th>Information supplemetaire</th> </tr>";

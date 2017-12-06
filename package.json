@@ -19,7 +19,7 @@
     "raml2html": "3.0.1",
     "request": "^2.83.0",
     "serve-favicon": "2.4.5",
-    "raml2html": "3.0.1",
+    "xml": "^1.0.1",
     "xmldom": "^0.1.27"
   }
 }

@@ -15,7 +15,7 @@ th {
 
 td {
   text-align: center;
-  padding-bottom: 10px;
+  padding: 30px;
   border-bottom-style: dotted;
   border-color: grey;
   border-width: thin;
@@ -23,12 +23,6 @@ td {
 
 td.left {
   text-align: left;
-  padding-left: 20px;
-  padding-right: 30px;
-}
-
-td.right {
-  text-align: right;
 }
 
 fieldset {

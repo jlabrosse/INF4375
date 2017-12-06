@@ -21,7 +21,7 @@ function createRinkList(xml){
       var condition = rink.getElementsByTagName("condition")[0].textContent;
       var jsonRink = {
         "type" : "patinoire",
-        "nom" : name,
+        "nom" : name.replace(/\s+/g, " "),
         "nom_arr" : regionName,
         "cle" : key,
         "date_maj" : updateDate,
@@ -57,7 +57,7 @@ function createSlideList(xml){
       var condition = slide.getElementsByTagName("condition")[0].textContent;
       var jsonSlide = {
         "type" : "glissade",
-        "nom" : name,
+        "nom" : name.replace(/\s+/g, " "),
         "nom_arr" : regionName,
         "cle" : key,
         "date_maj" : updateDate,
@@ -84,7 +84,7 @@ function normalizePoolData(poolList){
       var jsonPool = {
         "id_uev" : pool.ID_UEV,
         "type" : type,
-        "nom" : pool.NOM,
+        "nom" : pool.NOM.replace(/\s+/g, " "),
         "nom_arr" : pool.ARRONDISSE,
         "adresse" : pool.ADRESSE,
         "propriete" : pool.PROPRIETE,
@@ -102,6 +102,16 @@ function normalizePoolData(poolList){
   return jsonList;
 }
 
+function compareName(a, b){
+  if( a.nom > b.nom){
+    return 1;
+  }else if( a.nom < b.nom ){
+    return -1;
+  }
+  return 0;
+}
+
 exports.createRinkList = createRinkList;
 exports.createSlideList = createSlideList;
 exports.normalizePoolData = normalizePoolData;
+exports.compareName = compareName;

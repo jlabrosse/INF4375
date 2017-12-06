@@ -3,7 +3,7 @@
 * A1 : Les données sont stocké dans une base de données mongodb. La db "MTLdata" est crée avec la collection "installations".
     * Test: la fonction update() du module db.js charge les données et est appeller automatiquement quand l'application est mis en ligne.
         * Lancer l'application : npm start
-        * Observer la console pour le message "Updated."
+        * Observer la console pour le message "Connection established."
         * Verfier l'état de la base de données sur votre console mongodb :
             * use MTLdata
             * db.installations.find()
@@ -17,4 +17,4 @@
 * A3 : La documentation des services REST offert est disponible a la route "/doc".
     * Test : Lancer l'application et une page web a l'adresse http://localhost:3000/doc
 
-* A4 : 
+* A4 :

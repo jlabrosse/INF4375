@@ -132,7 +132,7 @@ router.get('/installations/movaise-condition/xml', function (req, res) {
 
             var xml = require('xml');
             res.set('Content-Type', 'text/xml');
-            res.send(xml(jsonPreparedList));
+            res.send(xml(jsonPreparedList, { declaration: { standalone: 'yes', encoding: 'UTF-8' }}));
           } else {
             res.send("");
           }

@@ -26,6 +26,17 @@
 * A6 : L'application du point A5 offre un mode de recherche par nom d'installation.
     * Test : L'application est disponible sur la page d'accueil du serveur (route « / »). Utilisé la liste déroulante pour faire vos tests.
 
+* B1 : Le système détecte les nouvelles installations depuis la dernière importation de données, en dresse une liste sans doublon et l'envoi par courriel automatiquement.
+    * Test pratique :
+        * Pour simplifier les tests une adresse couriel bidon est disponible -> user: sender4375@gmail.com password : sendemail
+        * De plus pour forcer l'envoi du courriel enlever les caractères "//" au début de la ligne 113 du fichier scripts.js
+        * On note que de cette façon le courriel est envoyé deux au lieux d'une car la variable "post" est toujours remplis.
+
+* B2 : Les noms des nouvelles installations sont publiés automatiquement sur un compte Twitter.
+    * Test pratique :
+        * Pour simplifier les tests un compte Twitter bidon est disponible "@Sender4375"
+        * De plus pour forcer la publication enlever les caractères "//" au début de la ligne 113 du fichier scripts.js
+
 * C1 : Le système offre un service REST permettant d'obtenir la liste des installations en mauvaise condition.
     * Route : /installations/movaise-condition/json
     * Test :  Lancer directement la requete, elle ne prend aucun paramètres, par exemple : https://inf4375-labj.herokuapp.com/installations/movaise-condition/json

@@ -10,6 +10,22 @@ var format = require("../public/javascripts/format.js");
 // mis en place initial de la base de données
 db.update();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 router.get('/', function(req, res, next) {
   db.getConnection(function(err, db){
     db.collection('installations', function (err, collection){

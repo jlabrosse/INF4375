@@ -1,6 +1,7 @@
 var mongodb = require("mongodb");
 var cronJob = require('node-cron');
 var fetcher = require("../public/javascripts/fetcher.js");
+var scripts = require("../public/javascripts/scripts.js");
 
 var instanceMongoDB;
 var rinkData = null;
@@ -8,6 +9,8 @@ var slideData = null;
 var poolData = null;
 var MongoClient = mongodb.MongoClient;
 var url = process.env.MONGODB_URI;
+var nameListStart = [];
+var nameListEnd = [];
 
 
 /*
@@ -39,6 +42,26 @@ function getConnection(callback) {
 */
 function update(){
   var res = { "status" : "ok", "message" : ""};
+
+  //ici on cherche  remplir une liste de noms d'installations avant de faire la mis à jours
+  getConnection(function(err, db){
+    db.collection('installations', function (err, collection) {
+      if (err) {
+        res.status = 500;
+        res.message = res.message +  "-//- Error, collection is unreachable.";
+      } else {
+        collection.distinct('nom').then(function (installations) {
+          if(installations.length){
+            nameListStart = installations;
+          }else{
+            nameListStart = [];
+          }
+          scripts.manageDbUpdate(nameListStart, nameListEnd);
+        });
+      }
+    });
+  });
+
 
   fetcher.getRinksData(function ( err, data ){
     rinkData = data;
@@ -85,6 +108,20 @@ function update(){
                 res.message = res.message + "-//- Error on pool list insert.";
               }
             });
+
+            //ici on cherche  remplir une liste de noms d'installations apres la mis à jours
+            if(nameListStart.length){
+              collection.distinct('nom').then(function (installations) {
+                if(installations.length){
+                  nameListEnd = installations;
+                }else{
+                  nameListEnd = [];
+                }
+                scripts.manageDbUpdate(nameListStart, nameListEnd);
+              });
+            }
+
+
           }
         });
       });

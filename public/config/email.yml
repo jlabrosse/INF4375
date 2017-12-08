@@ -1,0 +1,3 @@
+# Fichier de configuration pour l'adresse du destinataire du courriel de mise a jours
+destinataire:
+  - sender4375@gmail.com

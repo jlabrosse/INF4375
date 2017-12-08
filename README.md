@@ -7,6 +7,8 @@
 * A4 : 10xp
 * A5 : 10xp
 * A6 : 10xp
+* B1 : 10xp
+* B2 : 10xp
 * C1 : 10xp
 * C2 : 10xp
 * C3 : 5xp
@@ -23,4 +25,3 @@ _pour plus d'informations voir correction.md_
     * Le projet est disponible à l'adresse http://localhost:3000
 * __Sur Heroku__
     * L'application est disponible à l'adresse https://inf4375-labj.herokuapp.com/
-    

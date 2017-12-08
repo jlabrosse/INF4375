@@ -4,6 +4,12 @@ var csv = require("csvtojson");
 var nRequest = require('request');
 var format = require("./format");
 
+/*
+	getRinksData(callback) : Fonction qui va chercher le document xml de la ville de montreal qui
+		contien l'information sur les patinoires et qui retourne la meme structure en format json pret
+		à etre inserer dans la base de données.
+	Dans le cas ou la requête http ne retourne pas le code 200 une erreur est lancer.
+*/
 function getRinksData(callback) {
 	var options = {
     host: "www2.ville.montreal.qc.ca",
@@ -39,6 +45,12 @@ function getRinksData(callback) {
   request.end();
 }
 
+/*
+	getSlidesData(callback) : Fonction qui va chercher le document xml de la ville de montreal qui
+		contien l'information sur les glissades et qui retourne la meme structure en format json pret
+		à etre inserer dans la base de données.
+	Dans le cas ou la requête http ne retourne pas le code 200 une erreur est lancer.
+*/
 function getSlidesData(callback) {
 	var options = {
     host: "www2.ville.montreal.qc.ca",
@@ -74,6 +86,12 @@ function getSlidesData(callback) {
   request.end();
 }
 
+/*
+	getPoolData(callback) : Fonction qui va chercher le document csv de la ville de montreal qui
+		contien l'information sur les piscines et qui retourne la meme structure en format json pret
+		à etre inserer dans la base de données.
+	Dans le cas ou la requête http ne retourne pas le code 200 une erreur est lancer.
+*/
 var list = [];
 function getPoolData(callback) {
   console.log("Generating pool list.");

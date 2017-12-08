@@ -1,5 +1,11 @@
+/*
+  createTable(result) : Prend en entrée une liste d'objet json tiré de la base de données
+    et insert une chaine de caractères qui correspond au code HTML d'un tableau qui contien
+    l'information disponible sur chaque objet de la liste.
+  Si la liste est vide la table est vidé et un message la remplace pour indiquer a l'utilisateur
+  que il n'y a aucun résultat disponible.
+*/
 function createTable(result){
-  console.log(result);
   if(result.length){
     var html = "";
     var header = "<tr> <th>Nom</th> <th>Type</th> <th>Nom arrondissement</th> <th>Information supplemetaire</th> </tr>";
@@ -14,6 +20,10 @@ function createTable(result){
   }
 }
 
+/*
+  installationObjectToRow(jsonObject) : Une fonction utilisé par createTable pour traduire un objet
+    json en chaine de caractères qui correspond a une ligne d'une table HTML.
+*/
 function installationObjectToRow(jsonObject) {
   var name = "<td class='left'>" + jsonObject.nom + "</td>";
   var type = "<td>" + jsonObject.type + "</td>";
@@ -29,6 +39,10 @@ function installationObjectToRow(jsonObject) {
   return row;
 }
 
+/*
+  getSingleInstallation() : Une fonction AJAX qui permet sans paramètre de crée une table
+    (createTable) en fonction de la valeur du champ nameSelect du formulaire HTML.
+*/
 function getSingleInstallation() {
   var selectMenu = document.getElementById("nameSelect");
   var selectedItem = selectMenu.options[selectMenu.selectedIndex].text;
@@ -37,5 +51,3 @@ function getSingleInstallation() {
     dataType: "json",
   }).done(function(data){createTable(data)});
 }
-
-//mongod --port 27017 --dbpath C:\Users\Julien\Desktop\U\UQAM\S-8\INF4375\projet\projet_LABJ24049500\data

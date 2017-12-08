@@ -10,7 +10,11 @@ var MongoClient = mongodb.MongoClient;
 var url = process.env.MONGODB_URI;
 
 
-
+/*
+  getConnection(callback) : fonction qui instancie la connection a la base de données local
+    ou sur mLab si le local n'est pas disponible.
+  Log une l'erreur si la connection est impossible.
+*/
 function getConnection(callback) {
   if (instanceMongoDB) {
     callback(null, instanceMongoDB);
@@ -29,7 +33,10 @@ function getConnection(callback) {
   }
 };
 
-
+/*
+  update() : fonction qui s'occupe de la mis à jour de la base de données et qui log
+    le status avec une descriptions correspondant.
+*/
 function update(){
   var res = { "status" : "ok", "message" : ""};
 
@@ -82,6 +89,7 @@ function update(){
         });
       });
     }
+    console.log(res);
     console.log("Updated.");
   }
 
@@ -89,6 +97,7 @@ function update(){
 
 //cronJob.schedule('*/1 * * * *', function() {
 cronJob.schedule('0 0 0 * * *', function() {
+  //Tache executer a chaque jours a minuit.
   console.log("Cron job started.");
   update();
 });

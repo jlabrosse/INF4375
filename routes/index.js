@@ -7,6 +7,7 @@ var router = express.Router();
 var db = require('./db');
 var format = require("../public/javascripts/format.js");
 
+// mis en place initial de la base de données
 db.update();
 
 router.get('/', function(req, res, next) {
@@ -47,6 +48,7 @@ router.get('/installations', function (req, res) {
         console.log(err);
         res.sendStatus(500);
       } else {
+        // Ici on log la requete passé en paramètre pour faciliter le traitement en cas d'erreur
         console.log("query:");
         console.log(req.query);
         collection.find({nom_arr: req.query.arrondissement}, {'_id': false}).toArray(function (err, installations) {
@@ -69,6 +71,7 @@ router.get('/installations/simple', function (req, res) {
         console.log(err);
         res.sendStatus(500);
       } else {
+        // Ici on log la requete passé en paramètre pour faciliter le traitement en cas d'erreur
         console.log("query:");
         console.log(req.query);
         collection.find({nom: req.query.nom}, {'_id': false}).toArray(function (err, installation) {
@@ -118,6 +121,9 @@ router.get('/installations/movaise-condition/xml', function (req, res) {
             console.log(err);
             res.sendStatus(500);
           } else if(installations.length){
+            // Ici la liste d'installations doit etre modifier pour correspondre au format attendu part le module
+            // xml qui s'attend a ce que chaque champs de l'objet javascript soit un objet, on rajoute donc {} pour
+            // chaque champs de chaque objet
             var sortedItems = installations.sort(format.compareName);
             var jsonPreparedList = {"installations" : []};
             for (var i = 0; i < sortedItems.length; i++){

@@ -11,7 +11,7 @@
 * A2 : L'importation de données du point A1 est faite automatiquement chaque jour à minuit.
     * Test : Lancer l'application, attendre minuit, observer la console pour le message "Cron job started.". (pas très pratique)
     * Test pratique :
-        * Dans le fichier db.js : rajouter '//' au debut de la ligne 91 et enlever '//' au debut de la ligne 90.
+        * Dans le fichier db.js : rajouter '//' au debut de la ligne 99 et enlever '//' au debut de la ligne 98.
         * Lancer l'application (npm start); La mis à jour va maintenant etre lancer à chaque minute.
 
 * A3 : La documentation des services REST offert est disponible a la route "/doc".

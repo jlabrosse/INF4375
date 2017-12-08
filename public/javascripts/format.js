@@ -1,5 +1,11 @@
 var xmldom = require("xmldom");
 
+/*
+  createRinkList(xml) : Fonction qui prend en paramètre le document xml de la ville de montreal
+    et qui le converti en structure json pour pouvoir l'inserer dans la base de données.
+  On note que le champs "nom" est traiter de facon à supprimé les espaces en double qui polluent et complique
+  la recherche par nom.
+*/
 function createRinkList(xml){
   var rinksList = xml.getElementsByTagName("patinoire");
   var jsonRinkList = {"rinkList" : []};
@@ -38,6 +44,12 @@ function createRinkList(xml){
   return jsonRinkList;
 }
 
+/*
+  createSlideList(xml) : Fonction qui prend en paramètre le document xml de la ville de montreal
+    et qui le converti en structure json pour pouvoir l'inserer dans la base de données.
+  On note que le champs "nom" est traiter de facon à supprimé les espaces en double qui polluent et complique
+  la recherche par nom.
+*/
 function createSlideList(xml){
   var slidesList = xml.getElementsByTagName("glissade");
   var jsonSlideList = {"slideList" : []};
@@ -72,6 +84,13 @@ function createSlideList(xml){
   return jsonSlideList;
 }
 
+/*
+  normalizePoolData(poolList) : Fonction qui prend en paramètres une liste d'objet json traduit d'un document
+    csv grace au module csvtojson et converti le nom des clés des champs pour correspondre au autres structure dans
+    la base de données et faciliter la recherche.
+  On note que le champs "nom" est traiter de facon à supprimé les espaces en double qui polluent et complique
+  la recherche par nom.
+*/
 function normalizePoolData(poolList){
   var jsonList = [];
   if(!poolList.length){
@@ -102,6 +121,10 @@ function normalizePoolData(poolList){
   return jsonList;
 }
 
+/*
+  compareName(a, b) : Fonction à passé en paramètre à Array.sort() pour permettre de trié un liste d'objet
+    json en fonction de leurs champs "nom".
+*/
 function compareName(a, b){
   if( a.nom > b.nom){
     return 1;

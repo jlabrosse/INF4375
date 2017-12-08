@@ -26,21 +26,6 @@ function getConnection(callback) {
        callback(err, instanceMongoDB);
      }
     });
-
-    /*
-    var server = new mongodb.Server("localhost", 27017, {auto_reconnect: true});
-    var db = new mongodb.Db("MTLdata", server, {safe: true});
-
-    if (!db.openCalled) {
-      db.open(function(err, db) {
-        if (err) {
-          callback(err);
-        }
-        instanceMongoDB = db;
-        callback(err, instanceMongoDB);
-      });
-    }
-    */
   }
 };
 

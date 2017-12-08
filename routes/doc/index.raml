@@ -37,3 +37,33 @@ version: 1
                 schema: N/A
           500:
             description: Une erreur interne s'est produite. Consulté les logs pour plus d'informations.
+    /movaise-condition/json:
+      get:
+        description: Obtenir l'information disponible pour les installations en movaise condition en format json.
+        responses:
+          200:
+            description: L'information des l'installations en movaise condition a été correctement envoyée.
+            body:
+              application/json:
+                schema: N/A
+          500:
+            description: Une erreur interne s'est produite. Consulté les logs pour plus d'informations.
+    /movaise-condition/xml:
+      get:
+        description: Obtenir l'information disponible pour les installations en movaise condition en format xml.
+        responses:
+          200:
+            description: L'information des l'installations en movaise condition a été correctement envoyée.
+            body:
+              text/xml:
+                schema: N/A
+          500:
+            description: Une erreur interne s'est produite. Consulté les logs pour plus d'informations.
+    /movaise-condition/csv:
+      get:
+        description: Obtenir l'information disponible pour les installations en movaise condition en format csv.
+        responses:
+          200:
+            description: L'information des l'installations en movaise condition a été correctement envoyée.
+          500:
+            description: Une erreur interne s'est produite. Consulté les logs pour plus d'informations.

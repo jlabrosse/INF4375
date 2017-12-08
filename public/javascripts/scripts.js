@@ -110,7 +110,7 @@ function postTweetUpdate(text){
                - post : la liste des noms d'installations apres la mis à jours
 */
 function manageDbUpdate(pre, post){
-  post = ["1un","test"];
+  //post = ["un","test"];
   var yaml = require('js-yaml');
   fs = require('fs');
   let config = {};
